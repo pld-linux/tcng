@@ -13,13 +13,13 @@ Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss020116-try.tar.gz
 Source2:	http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
 Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.21.tar.bz2
 BuildRequires:	flex
-%{!?_without_dist_kernel:BuildRequires:	kernel-source >= 2.4.0}
 BuildRequires:	perl
 BuildRequires:	psutils
 BuildRequires:	rpm-perlprov
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
 BuildRequires:	yacc
+Obsoletes:	tcng-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,25 +36,11 @@ drugiej fazie komponenty j±dra bêd± generowane bezpo¶rednio poprzez
 narzêdzia konfiguruj±ce. Wszystko to pod ka¿dym wzglêdem jest w pe³ni
 kompatybilne z istniej±c± infrastruktur± kontroli ruchu.
 
-%package devel
-Summary:	C library for processing tcc external output
-Summary(pl):	Biblioteka C do parsowania plików wygenerowanych przez tcc
-Group:		Development/Libraries
-
-%description devel
-The library "libtccext", which offers a convenient C interface to the
-data provided by tcc at its "external" interface. The library is
-accompanied by header files for itself, and for the debugging
-functions echoh, which are also included in libtccext.
-
-%description devel -l pl
-Biblioteka ,,libtccext'' oferuje interfejs C do danych dostarczanych
-przez tcc jako jego ,,zewnêtrzny'' interfejs.
-
 %package -n tcsim
 Summary:	Linux Traffic Control simulator
 Summary(pl):	Symulator Kontroli Ruchu w Linuxie
 Group:		Applications/Emulators
+Obsoletes:	tcsim-devel
 
 %description -n tcsim
 tcsim combines the original traffic control code from the Linux kernel
@@ -70,22 +56,6 @@ tcsim ³±czy w sobie oryginalny kod kontroli ruchu z j±dra Linuxa wraz
 z kodem z przestrzeni u¿ytkownika, a mianowicie narzêdziem tc oraz
 dodatkowo dodaje czê¶æ umo¿liwiaj±c± komunikacjê miêdzy nimi plus
 silnik symulacji.
-
-%package -n tcsim-devel
-Summary:	Cross-compilers and header files for building tcsim modules
-Summary(pl):	Cross-kompilatory i nag³ówki do budowania modu³ów tcsim
-Group:		Development/Tools
-
-%description -n tcsim-devel
-The "cross-compilers" kmod_cc and tcmod_cc compile kernel and tc
-modules such that they can be used with tcsim.
-
-This package also includes all header files necessary for generating
-the tcsim environment.
-
-%description -n tcsim-devel -l pl
-,,Cross-kompilatory'' kmod_cc oraz tcmod_cc kompiluj± modu³y kernela
-oraz modu³y tc w taki sposób, ¿e mog± byæ one u¿ywane wraz z tcsim.
 
 %prep
 %setup -q -n %{name} -a1 -a2 -a3
@@ -122,9 +92,6 @@ install -d $RPM_BUILD_ROOT{%{_prefix},%{_libdir},%{_includedir}/tcng}
 
 TCNG_INSTALL_CWD=%{_prefix} %{__make} install
 
-cp -f $RPM_BUILD_ROOT%{_libdir}/tcng/lib/*.a $RPM_BUILD_ROOT%{_libdir}
-cp -f $RPM_BUILD_ROOT%{_libdir}/tcng/include/*.h $RPM_BUILD_ROOT%{_includedir}/tcng
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -133,35 +100,23 @@ rm -rf $RPM_BUILD_ROOT
 %doc TODO doc/tcng.txt doc/tcng.ps examples examples-ng
 %attr(755,root,root) %{_bindir}/tcc
 %attr(755,root,root) %{_bindir}/tcc.bin
+%attr(755,root,root) %{_bindir}/*.pl
 %dir %{_libdir}/tcng
 %dir %{_libdir}/tcng/bin
 %attr(755,root,root) %{_libdir}/tcng/bin/tcc-*
 %dir %{_libdir}/tcng/lib
 %{_libdir}/tcng/lib/*.c
+%{_libdir}/tcng/lib/*.a
 %dir %{_libdir}/tcng/include
 %{_libdir}/tcng/include/*.tc
+%{_libdir}/tcng/include/*.h
 
-%files devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*.pl
-%{_libdir}/*.a
-%{_includedir}/tcng
 
 %files -n tcsim
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/tcsim*
-%{_libdir}/tcng/include/*.def
-
-%files -n tcsim-devel
-%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/tcng/bin/*_cc
-%dir %{_libdir}/tcng/include/klib
-%{_libdir}/tcng/include/klib/include
-%dir %{_libdir}/tcng/include/klib/kernel
-%{_libdir}/tcng/include/klib/kernel/include
-%dir %{_libdir}/tcng/include/ulib
-%dir %{_libdir}/tcng/include/ulib/iproute2
-%{_libdir}/tcng/include/ulib/iproute2/include
-%{_libdir}/tcng/include/ulib/iproute2/include-glibc
-%dir %{_libdir}/tcng/include/ulib/iproute2/tc
-%{_libdir}/tcng/include/ulib/iproute2/tc/*.h
+%{_libdir}/tcng/include/*.def
+%{_libdir}/tcng/include/*.tcsim
+%{_libdir}/tcng/include/klib
+%{_libdir}/tcng/include/ulib
