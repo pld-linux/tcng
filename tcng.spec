@@ -7,6 +7,7 @@ Release:	1
 License:	GPL/LGPL
 Group:		Networking/Admin
 Source0:	http://tcng.sourceforge.net/dist/%{name}-%{version}.tar.gz
+# Source0-md5:	6bf274295d62aa5187289faf83ad6ad7
 Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss010803.tar.gz
 # Source1-md5: e74a8059d4f605095cb644a50a7d44ab
 URL:		http://tcng.sourceforge.net/
