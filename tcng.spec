@@ -15,7 +15,7 @@ Source2:	http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
 Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.26.tar.bz2
 # Source3-md5:	88d7aefa03c92739cb70298a0b486e2c
 BuildRequires:	flex
-BuildRequires:	perl
+BuildRequires:	perl-base
 BuildRequires:	psutils
 BuildRequires:	rpm-perlprov
 BuildRequires:	tetex-dvips
