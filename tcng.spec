@@ -11,7 +11,9 @@ Source0:	http://tcng.sourceforge.net/dist/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss020116-try.tar.gz
 # Source1-md5:	2c7e5f3a10e703745ecdc613f7a7d187
 Source2:	http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
+# Source2-md5:	3064fd8642ce6a7e155a29c5205b99d4
 Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.21.tar.bz2
+# Source3-md5:	f51e12efa18bb828cf57d9d4a81b2fb1
 BuildRequires:	flex
 BuildRequires:	perl
 BuildRequires:	psutils
