@@ -71,7 +71,7 @@ echo '
 KSRC="tcsim/linux"
 ISRC="tcsim/iproute2"
 TCSIM="true"
-%ifarch %{ix86} alpha
+%ifarch %{ix86} alpha amd64
 BYTEORDER="LITTLE_ENDIAN"
 %else
 BYTEORDER="BIG_ENDIAN"
