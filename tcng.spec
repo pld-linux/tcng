@@ -32,7 +32,7 @@ configuration utilities. Throughout all this, full compatibility with
 the existing traffic control infrastructure will be maintained.
 
 %description -l pl
-tcng jest od nowa zaprojektowan± architektór± kontroli ruchu dla
+tcng jest od nowa zaprojektowan± architektur± kontroli ruchu dla
 Linuxa. W pierwszej fazie jêzyk konfiguracji bêdzie usprawniony. W
 drugiej fazie komponenty j±dra bêd± generowane bezpo¶rednio poprzez
 narzêdzia konfiguruj±ce. Wszystko to pod ka¿dym wzglêdem jest w pe³ni
