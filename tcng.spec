@@ -33,14 +33,14 @@ the existing traffic control infrastructure will be maintained.
 
 %description -l pl
 tcng jest od nowa zaprojektowan± architektur± kontroli ruchu dla
-Linuxa. W pierwszej fazie jêzyk konfiguracji bêdzie usprawniony. W
+Linuksa. W pierwszej fazie jêzyk konfiguracji bêdzie usprawniony. W
 drugiej fazie komponenty j±dra bêd± generowane bezpo¶rednio poprzez
 narzêdzia konfiguruj±ce. Wszystko to pod ka¿dym wzglêdem jest w pe³ni
 kompatybilne z istniej±c± infrastruktur± kontroli ruchu.
 
 %package -n tcsim
 Summary:	Linux Traffic Control simulator
-Summary(pl):	Symulator Kontroli Ruchu w Linuxie
+Summary(pl):	Symulator Kontroli Ruchu w Linuksie
 Group:		Applications/Emulators
 Obsoletes:	tcsim-devel
 
@@ -54,7 +54,7 @@ The resulting program runs entirely in user space, but executes almost
 exactly the same code as a "real" system.
 
 %description -n tcsim -l pl
-tcsim ³±czy w sobie oryginalny kod kontroli ruchu z j±dra Linuxa wraz
+tcsim ³±czy w sobie oryginalny kod kontroli ruchu z j±dra Linuksa wraz
 z kodem z przestrzeni u¿ytkownika, a mianowicie narzêdziem tc oraz
 dodatkowo dodaje czê¶æ umo¿liwiaj±c± komunikacjê miêdzy nimi plus
 silnik symulacji.
