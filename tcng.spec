@@ -2,15 +2,16 @@
 Summary:	Traffic Control - Next Generation
 Summary(pl):	Kontrola Ruchu - Nastêpna Generacja
 Name:		tcng
-Version:	8u
+Version:	9f
 Release:	1
 License:	GPL/LGPL
 Group:		Networking/Admin
 Source0:	http://tcng.sourceforge.net/dist/%{name}-%{version}.tar.gz
-# Source0-md5:	6bf274295d62aa5187289faf83ad6ad7
-Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss010803.tar.gz
-# Source1-md5: e74a8059d4f605095cb644a50a7d44ab
-URL:		http://tcng.sourceforge.net/
+# Source0-md5:	28ff5fdd6e63ef1895728d20f660f0a1
+Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss020116-try.tar.gz
+# Source1-md5:	2c7e5f3a10e703745ecdc613f7a7d187
+Source2:	http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
+Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.21.tar.bz2
 BuildRequires:	flex
 %{!?_without_dist_kernel:BuildRequires:	kernel-source >= 2.4.0}
 BuildRequires:	perl
@@ -87,11 +88,15 @@ the tcsim environment.
 oraz modu³y tc w taki sposób, ¿e mog± byæ one u¿ywane wraz z tcsim.
 
 %prep
-%setup -q -n %{name} -a1
+%setup -q -n %{name} -a1 -a2 -a3
+cd tcsim
+ln -s ../linux-*.*.* linux
+ln -s ../iproute2 iproute2
+patch -s -p1 -d iproute2 < ../htb3.6_tc.diff
 
 %build
 echo '
-KSRC="%{_kernelsrcdir}"
+KSRC="tcsim/linux"
 ISRC="tcsim/iproute2"
 TCSIM="true"
 %ifarch %{ix86} alpha
@@ -100,9 +105,6 @@ BYTEORDER="LITTLE_ENDIAN"
 BYTEORDER="BIG_ENDIAN"
 %endif
 ' > config
-
-ln -s %{_kernelsrcdir} tcsim/linux
-ln -s ../iproute2 tcsim/iproute2
 
 install -d $RPM_BUILD_ROOT%{_prefix}
 
@@ -133,7 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/tcc.bin
 %dir %{_libdir}/tcng
 %dir %{_libdir}/tcng/bin
-%{_libdir}/tcng/bin/tcc-*
+%attr(755,root,root) %{_libdir}/tcng/bin/tcc-*
 %dir %{_libdir}/tcng/lib
 %{_libdir}/tcng/lib/*.c
 %dir %{_libdir}/tcng/include
