@@ -9,14 +9,14 @@ Group:		Networking/Admin
 Source0:	http://tcng.sourceforge.net/dist/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss010803.tar.gz
 URL:		http://tcng.sourceforge.net/
-BuildRequires:	yacc
 BuildRequires:	flex
-BuildRequires:	kernel-source >= 2.4.0
+%{!?_without_dist_kernel:BuildRequires:	kernel-source >= 2.4.0}
+BuildRequires:	perl
+BuildRequires:	psutils
+BuildRequires:	rpm-perlprov
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-latex
-BuildRequires:	psutils
-BuildRequires:	perl
-BuildRequires:	rpm-perlprov
+BuildRequires:	yacc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -92,7 +92,7 @@ echo '
 KSRC="%{_kernelsrcdir}"
 ISRC="tcsim/iproute2"
 TCSIM="true"
-%ifarch %{ix86}
+%ifarch %{ix86} alpha
 BYTEORDER="LITTLE_ENDIAN"
 %else
 BYTEORDER="BIG_ENDIAN"
