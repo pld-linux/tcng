@@ -102,6 +102,8 @@ BYTEORDER="BIG_ENDIAN"
 ln -s %{_kernelsrcdir} tcsim/linux
 ln -s ../iproute2 tcsim/iproute2
 
+install -d $RPM_BUILD_ROOT%{_prefix}
+
 ./configure \
 	--install-directory $RPM_BUILD_ROOT%{_prefix}
 
