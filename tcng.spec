@@ -2,25 +2,27 @@
 Summary:	Traffic Control - Next Generation
 Summary(pl):	Kontrola Ruchu - Nastêpna Generacja
 Name:		tcng
-Version:	9m
+Version:	10b
 Release:	1
 License:	GPL/LGPL
 Group:		Networking/Admin
 Source0:	http://tcng.sourceforge.net/dist/%{name}-%{version}.tar.gz
-# Source0-md5:	636d382f6db917b385e7a6f158136ca2
-Source1:	ftp://ftp.inr.ac.ru/ip-routing/iproute2-2.4.7-now-ss020116.tar.gz
-# Source1-md5:	2c7e5f3a10e703745ecdc613f7a7d187
+# Source0-md5:	d28bc6b1ed8973814213942288ab5d18
+Source1:	http://developer.osdl.org/dev/iproute2/download/iproute2-2.4.7-now-ss020116-try.tar.bz2
+# Source1-md5:	a669dd60bfb568fa69309c86ec1031f6
 Source2:	http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
 # Source2-md5:	3064fd8642ce6a7e155a29c5205b99d4
-Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.26.tar.bz2
-# Source3-md5:	88d7aefa03c92739cb70298a0b486e2c
+Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.27.tar.bz2
+# Source3-md5:	59a2e6fde1d110e2ffa20351ac8b4d9e
+URL:		http://tcng.sourceforge.net/
 BuildRequires:	flex
 BuildRequires:	perl-base
 BuildRequires:	psutils
 BuildRequires:	rpm-perlprov
 BuildRequires:	tetex-dvips
-BuildRequires:	tetex-latex
-BuildRequires:	yacc
+BuildRequires:	tetex-format-latex
+BuildRequires:	transfig
+BuildRequires:	bison
 Obsoletes:	tcng-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,12 +67,14 @@ cd tcsim
 ln -s ../linux-*.*.* linux
 ln -s ../iproute2 iproute2
 patch -s -p1 -d iproute2 < ../htb3.6_tc.diff
+sed -i -e 's#type -path#whence#g' ../configure
 
 %build
 echo '
 KSRC="tcsim/linux"
 ISRC="tcsim/iproute2"
 TCSIM="true"
+BUILD_MANUAL="true"
 %ifarch %{ix86} alpha amd64
 BYTEORDER="LITTLE_ENDIAN"
 %else
@@ -102,6 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc TODO doc/tcng.txt doc/tcng.ps examples examples-ng
 %attr(755,root,root) %{_bindir}/tcc
 %attr(755,root,root) %{_bindir}/tcc.bin
+%attr(755,root,root) %{_bindir}/tcng
 %attr(755,root,root) %{_bindir}/*.pl
 %dir %{_libdir}/tcng
 %dir %{_libdir}/tcng/bin
