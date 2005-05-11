@@ -15,14 +15,15 @@ Source2:	http://luxik.cdi.cz/~devik/qos/htb/v3/htb3.6-020525.tgz
 Source3:	ftp://ftp.kernel.org/pub/linux/kernel/v2.4/linux-2.4.27.tar.bz2
 # Source3-md5:	59a2e6fde1d110e2ffa20351ac8b4d9e
 URL:		http://tcng.sourceforge.net/
+BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	perl-base
 BuildRequires:	psutils
+BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	rpm-perlprov
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-format-latex
 BuildRequires:	transfig
-BuildRequires:	bison
 Obsoletes:	tcng-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -75,7 +76,7 @@ KSRC="tcsim/linux"
 ISRC="tcsim/iproute2"
 TCSIM="true"
 BUILD_MANUAL="true"
-%ifarch %{ix86} alpha amd64
+%ifarch %{ix86} %{x8664} alpha ia64
 BYTEORDER="LITTLE_ENDIAN"
 %else
 BYTEORDER="BIG_ENDIAN"
