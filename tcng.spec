@@ -21,6 +21,7 @@ BuildRequires:	perl-base
 BuildRequires:	psutils
 BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRequires:	rpm-perlprov
+BuildRequires:	sed >= 4.0
 BuildRequires:	tetex-dvips
 BuildRequires:	tetex-format-latex
 BuildRequires:	transfig
