@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Traffic Control - Next Generation
-Summary(pl.UTF-8):   Kontrola Ruchu - Następna Generacja
+Summary(pl.UTF-8):	Kontrola Ruchu - Następna Generacja
 Name:		tcng
 Version:	10b
 Release:	1
@@ -44,7 +44,7 @@ kompatybilne z istniejącą infrastrukturą kontroli ruchu.
 
 %package -n tcsim
 Summary:	Linux Traffic Control simulator
-Summary(pl.UTF-8):   Symulator Kontroli Ruchu w Linuksie
+Summary(pl.UTF-8):	Symulator Kontroli Ruchu w Linuksie
 Group:		Applications/Emulators
 Obsoletes:	tcsim-devel
 
