@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Traffic Control - Next Generation
-Summary(pl):	Kontrola Ruchu - Nastêpna Generacja
+Summary(pl.UTF-8):   Kontrola Ruchu - NastÄ™pna Generacja
 Name:		tcng
 Version:	10b
 Release:	1
@@ -35,16 +35,16 @@ second phase, kernel components will be generated directly by
 configuration utilities. Throughout all this, full compatibility with
 the existing traffic control infrastructure will be maintained.
 
-%description -l pl
-tcng jest od nowa zaprojektowan± architektur± kontroli ruchu dla
-Linuksa. W pierwszej fazie jêzyk konfiguracji bêdzie usprawniony. W
-drugiej fazie komponenty j±dra bêd± generowane bezpo¶rednio poprzez
-narzêdzia konfiguruj±ce. Wszystko to pod ka¿dym wzglêdem jest w pe³ni
-kompatybilne z istniej±c± infrastruktur± kontroli ruchu.
+%description -l pl.UTF-8
+tcng jest od nowa zaprojektowanÄ… architekturÄ… kontroli ruchu dla
+Linuksa. W pierwszej fazie jÄ™zyk konfiguracji bÄ™dzie usprawniony. W
+drugiej fazie komponenty jÄ…dra bÄ™dÄ… generowane bezpoÅ›rednio poprzez
+narzÄ™dzia konfigurujÄ…ce. Wszystko to pod kaÅ¼dym wzglÄ™dem jest w peÅ‚ni
+kompatybilne z istniejÄ…cÄ… infrastrukturÄ… kontroli ruchu.
 
 %package -n tcsim
 Summary:	Linux Traffic Control simulator
-Summary(pl):	Symulator Kontroli Ruchu w Linuksie
+Summary(pl.UTF-8):   Symulator Kontroli Ruchu w Linuksie
 Group:		Applications/Emulators
 Obsoletes:	tcsim-devel
 
@@ -57,10 +57,10 @@ simulation engine.
 The resulting program runs entirely in user space, but executes almost
 exactly the same code as a "real" system.
 
-%description -n tcsim -l pl
-tcsim ³±czy w sobie oryginalny kod kontroli ruchu z j±dra Linuksa wraz
-z kodem z przestrzeni u¿ytkownika, a mianowicie narzêdziem tc oraz
-dodatkowo dodaje czê¶æ umo¿liwiaj±c± komunikacjê miêdzy nimi plus
+%description -n tcsim -l pl.UTF-8
+tcsim Å‚Ä…czy w sobie oryginalny kod kontroli ruchu z jÄ…dra Linuksa wraz
+z kodem z przestrzeni uÅ¼ytkownika, a mianowicie narzÄ™dziem tc oraz
+dodatkowo dodaje czÄ™Å›Ä‡ umoÅ¼liwiajÄ…cÄ… komunikacjÄ™ miÄ™dzy nimi plus
 silnik symulacji.
 
 %prep
