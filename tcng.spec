@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Traffic Control - Next Generation
 Summary(pl.UTF-8):	Kontrola Ruchu - Następna Generacja
 Name:		tcng
